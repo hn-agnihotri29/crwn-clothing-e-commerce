@@ -4,7 +4,8 @@ import {  getAuth,
           signInWithRedirect, 
           signInWithPopup, 
           createUserWithEmailAndPassword,
-          signInWithEmailAndPassword
+          signInWithEmailAndPassword,
+          signOut
         } from "firebase/auth";
 
 //doc help to reterive data from firestore
@@ -47,10 +48,8 @@ const firebaseConfig = {
 
     // doc(database, collection, identifier)
     const userDocRef = doc(db, 'users', userAuth.uid)
-    console.log(userDocRef)
-
+ 
     const userSnapShot= await getDoc(userDocRef)
-    console.log(userSnapShot)
 
     //if user does not exist
     //create/set the document with the data from userAuth in my collection
@@ -85,3 +84,6 @@ export const  signInAuthUserWithEmailAndPassowrd = async(email, password) => {
 
   return await signInWithEmailAndPassword(auth,email, password)
 }
+
+
+export const signOutUser = async () => await signOut(auth)
