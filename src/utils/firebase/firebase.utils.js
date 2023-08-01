@@ -5,8 +5,10 @@ import {  getAuth,
           signInWithPopup, 
           createUserWithEmailAndPassword,
           signInWithEmailAndPassword,
-          signOut
+          signOut,
+          onAuthStateChanged
         } from "firebase/auth";
+//onAuthStateChanged return listener
 
 //doc help to reterive data from firestore
 import {getFirestore, doc, getDoc, setDoc} from 'firebase/firestore'
@@ -87,3 +89,5 @@ export const  signInAuthUserWithEmailAndPassowrd = async(email, password) => {
 
 
 export const signOutUser = async () => await signOut(auth)
+
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
