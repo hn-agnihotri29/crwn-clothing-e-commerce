@@ -8,6 +8,8 @@ import './index.scss';
 import App from './App';
   /* Userprovider tell us inside my compoenent tree check which components has access to my context */
 import { UserProvider } from './context/userContext';
+import { ProductsProvider } from './context/products.context';
+import { CartProvider } from './context/cart.context';
 
 
 import reportWebVitals from './reportWebVitals';
@@ -17,7 +19,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <ProductsProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
