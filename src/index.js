@@ -10,7 +10,6 @@ import './index.scss';
 import App from './App';
   /* Userprovider tell us inside my component tree check which components has access to my context */
 // import { UserProvider } from './context/userContext';
-import { CategoriesProvider } from './context/categories.context';
 import { CartProvider } from './context/cart.context';
 
 
@@ -21,11 +20,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-          <CategoriesProvider>
             <CartProvider>
               <App />
             </CartProvider>
-          </CategoriesProvider>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
