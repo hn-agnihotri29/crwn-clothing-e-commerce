@@ -12,7 +12,7 @@ import {  getAuth,
 
 //doc help to reterive data from firestore
 import {getFirestore, doc, getDoc, setDoc, collection, writeBatch, query,getDocs} from 'firebase/firestore'
-import { cloneElement } from 'react';
+// import { cloneElement } from 'react';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {

@@ -8,8 +8,10 @@ import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component
 
 //Link is act as achor tag
 import { Outlet } from "react-router-dom"
-import { UserContext } from "../../context/userContext"
 import { CartContext } from "../../context/cart.context"
+
+import { useSelector } from "react-redux"
+import { selectCurrentUser } from "../../store/user/user.selector"
 
 import { signOutUser } from "../../utils/firebase/firebase.utils"
 
@@ -17,7 +19,8 @@ import { NavigationContainer, LogoContainer, NavLinks, NavLink } from "./navigat
 
 
 const Navigation = () => {
-    const {currentUser} = useContext(UserContext)
+
+    const currentUser = useSelector(selectCurrentUser)
     //console.log(currentUser)
     const  {isCartOpen} = useContext(CartContext)
 
