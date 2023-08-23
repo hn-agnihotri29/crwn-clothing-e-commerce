@@ -1,5 +1,5 @@
 //Fragement don't display the wrap div in our real dom
-import { Fragment, useContext } from "react"
+import { Fragment } from "react"
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg"
 
 import CartIcon from "../../components/cart-icon/cart-icon.component"
@@ -8,7 +8,8 @@ import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component
 
 //Link is act as achor tag
 import { Outlet } from "react-router-dom"
-import { CartContext } from "../../context/cart.context"
+
+import { selectIsCartOpen } from "../../store/cart/cart.selector"
 
 import { useSelector } from "react-redux"
 import { selectCurrentUser } from "../../store/user/user.selector"
@@ -22,7 +23,7 @@ const Navigation = () => {
 
     const currentUser = useSelector(selectCurrentUser)
     //console.log(currentUser)
-    const  {isCartOpen} = useContext(CartContext)
+    const isCartOpen = useSelector(selectIsCartOpen)
 
     const signOutHandler = async () => {
         await signOutUser()
