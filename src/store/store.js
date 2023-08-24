@@ -1,32 +1,33 @@
 import { compose, createStore, applyMiddleware } from "redux";
-// import logger from "redux-logger";
-
+import logger from "redux-logger";
 import { rootReducer } from "./root-reducer";
 
-//we can create the custom middleware  format for middleware is same it going to be 3 function that return to one another
-const loggerMiddleware = (store) => (next) => (action) => {
-    if(!action.type) {
-        return next(action)
-    }
+import { persistStore, persistReducer } from "redux-persist";
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+import thunk from "redux-thunk";
 
-    console.log('type: ', action.type)
-    console.log('payload: ', action.payload)
-    console.log('currentUser: ', store.getState())
 
-    next(action)
-
-    console.log('next state: ', store.getState())
+const persistConfig = {
+    key: 'root',  // start from root level
+    storage,
+    backlist: ['user']
 }
 
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+
+
 //is kind of lib helper that run the action hit the reducer
-const middleWares = [loggerMiddleware]
+const middleWares = [process.env.NODE_ENV !== 'production' && logger, thunk].filter(Boolean)
 
 
+const composeEnhancer = (process.env.NODE_ENV !== 'production' && window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
      
 //root-reducer
 //logger allow us to see that the state look like before and after the dispatch action is 
 // what action is and how the state look after the action 
+const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares))
 
-const composedEnhancers = compose(applyMiddleware(...middleWares))
+export const store = createStore(persistedReducer, undefined, composedEnhancers)
 
-export const store = createStore(rootReducer, undefined, composedEnhancers)
+export const persistor = persistStore(store)
