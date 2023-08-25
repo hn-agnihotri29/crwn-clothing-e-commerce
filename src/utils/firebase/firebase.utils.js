@@ -125,3 +125,15 @@ export const getCollectionAndDocument = async () => {
 
 }
 
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe()
+        resolve(userAuth)
+      },
+      reject
+    )
+  })
+}
