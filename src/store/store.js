@@ -10,7 +10,7 @@ import thunk from "redux-thunk";
 const persistConfig = {
     key: 'root',  // start from root level
     storage,
-    backlist: ['user']
+    whiltelist: ['cart']
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
