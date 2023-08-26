@@ -38,7 +38,7 @@ const firebaseConfig = {
   export const auth = getAuth()
   export const signInWithGooglePopup = () => signInWithPopup(auth, provider)
   export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider)
-
+    
 
 
 
@@ -73,7 +73,7 @@ const firebaseConfig = {
     }
 
     //if user exist
-    return userDocRef
+    return userSnapShot
   }
 
 export const  createAuthUserWithEmailAndPassowrd = async(email, password) => {

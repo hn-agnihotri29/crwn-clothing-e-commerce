@@ -14,7 +14,7 @@ import { rootSaga } from "./root-saga";
 const persistConfig = {
     key: 'root',  // start from root level
     storage,
-    whiltelist: ['cart']
+    whiltelist: ['cart'],
 }
 
 
