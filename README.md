@@ -9,5 +9,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### Deployment
 
-This web application is deployed on Netlify, click on the link to access the web application [https://kaleidoscopic-lolly-57b67b.netlify.app/checkout](CROWN_COLTHING)
+This web application is deployed on Netlify, click on the link to access the web application (CROWN_COLTHING)[https://kaleidoscopic-lolly-57b67b.netlify.app]
 
