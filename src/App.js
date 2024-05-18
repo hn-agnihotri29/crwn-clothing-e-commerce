@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import Spinner from './components/spinner/spinner.component';
 
 
-
+import { GlobalStyle } from './global.styles';
 //This is synchrounous import that mean our js don't run until all of the import successfully brought into this file so for that we use 
 // dynamic import from modern javascript 
 // import Home from './routes/home/home.component'
@@ -38,6 +38,7 @@ const App = () => {
 
   return (
     <Suspense fallback={<Spinner />}>
+    <GlobalStyle />
     <Routes>
       <Route path='/' element={<Navigation />}>
         <Route index element={<Home />} />

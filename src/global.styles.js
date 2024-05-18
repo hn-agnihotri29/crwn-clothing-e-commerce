@@ -2,13 +2,20 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 	body {
-		font-family: 'Open Sans Condensed';
-		padding: 20px 40px;
+        margin: 0;
+        padding: 20px 40px;
+		font-family: 'Open Sans Condensed', sans-serif;
+        -webkit-font-smoothing: antialiasd;
+        -moz-osx-font-smoothing: grayscale;
 
 		@media screen and (max-width: 800px) {
 			padding: 10px;
 		}
 	}
+
+    code {
+        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    }
 
 	a {
 		text-decoration: none;

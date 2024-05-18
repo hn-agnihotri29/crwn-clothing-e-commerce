@@ -6,8 +6,6 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
-
-import './index.scss';
 import App from './App';
   /* Userprovider tell us inside my component tree check which components has access to my context */
 // import { UserProvider } from './context/userContext';
